@@ -1,0 +1,360 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+.container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.bubbles{
+    position: fixed;
+    display: flex;
+}
+.bubbles img{
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: 0 4px;
+    animation: animate 15s linear infinite;
+    animation-duration: calc(125s / var(--i)); 
+}
+.bubbles span{
+    position: relative;
+    width: 10px;
+    height: 10px;
+    background-color: whitesmoke;
+    margin: 0 4px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 10px white,
+    0 0 50px whitesmoke,
+    0 0 100px whitesmoke;
+    animation: animate 15s linear infinite;
+    animation-duration: calc(125s / var(--i));
+}
+.bubbles span:nth-child(even){
+    background-color: whitesmoke;
+    box-shadow: 0 0 0 10px white,
+    0 0 50px whitesmoke,
+    0 0 100px whitesmoke;
+}
+@keyframes animate{
+    0%{
+        transform: translateY(100vh) scale(1);
+    }
+    100%{
+        transform: translateY(-100vh) scale(1);
+    }
+}
+body{
+    font-family: sans-serif;
+    margin: 5;
+    background-image: url(img/fondo.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+header{
+    
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px 10px;
+}
+.menu{
+    position: relative;
+    border: 2px solid white;
+    box-shadow: 0 0 10px white;
+    border-radius: 50px;
+    padding: 20px 20px;
+
+}
+.menu ul{
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+}
+.menu ul li a{
+    text-decoration: none;
+    background-color: #333;
+    border-radius: 15px;
+    color: whitesmoke;
+    padding: 20px;
+    display: block;
+    transition: .5s;
+}
+.menu li{
+    display: inline-block;
+    text-align: center;
+}
+.menu ul li a::before{
+    content: '';
+  position: absolute;
+  top: 0.5;
+  left: 5;
+  width: 3%;
+  height: 3%;
+  border-radius: 50%;
+  background: blueviolet;
+  transition: .5s;
+  transform: scale(.9);
+  z-index: -1;
+}
+.menu ul li a:hover::before{
+    transform: scale(1.1);
+  box-shadow: 0 0 15px blueviolet;
+}
+.menu ul li a:hover{
+    color: blueviolet;
+  box-shadow: 0 0 10px blueviolet;
+  text-shadow: 0 0 10px blueviolet;
+}
+.intro{
+    position: relative;
+    border: 2px solid white;
+    box-shadow: inset 0 0 15px white, 0 0 15px white;
+    padding: 30px;
+    text-align: center;
+    border-radius: 16px;
+}
+.intro h3{
+    color: white;
+    margin: 0;
+    font-size: 50px;
+    text-shadow: 0 0 5px blueviolet,0 0 15px blueviolet,0 0 30px blueviolet,0 0 50px blueviolet;
+
+}
+.intro p{
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid white;
+    box-shadow: inset 0 0 15px white, 0 0 15px white;
+    background-color: black;
+    color: white;
+    margin: 0;
+    font-size: 20px;
+    text-shadow: 0 0 5px whitesmoke,0 0 15px whitesmoke;
+}
+.intro img{
+    border: 1px solid white;
+    box-shadow: inset 0 0 15px white, 0 0 15px white;
+}
+.imagenes-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    border-radius: 15px;
+}
+.imagenes-container .imagen{
+    
+    position: relative;
+    margin-right: -20px;
+    display: inline-flex;
+    flex-direction: column;
+}
+.imagenes-container .imagen img{
+    border: 1px solid white;
+    box-shadow: inset 0 0 5px white, 0 0 15px white;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    transition: transform 0.35s ease-in-out;
+}
+.imagenes-container .imagen .nombre{
+    border: 1px solid white;
+    box-shadow: inset 0 0 10px white, 0 0 10px white;
+    position: absolute;
+    background-color: black;
+    border-radius: 5px;
+    color: white;
+    display: none;
+    min-width: 100px;
+    width: 150px;
+    top: -45px;
+    padding: 10px 15px;
+}
+.imagenes-container .imagen .nombre .text{
+    display: inline-block;
+    text-overflow: unset;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100px;
+    text-align: center;
+    box-sizing: border-box;
+}
+.imagenes-container .imagen:hover .nombre{
+    display: inline-block;
+    transform: translateY(-20px);
+}
+.imagenes-container .imagen .nombre:before{
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    left: 40%;
+    bottom: -20px;
+    border-top: 10px solid black;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+}
+.imagenes-container .imagen:hover img{
+    transform: translateY(-20px);
+}
+@media(max-width: 680px){
+    .imagenes-container{
+        flex-direction: column;
+        height: 180vh;
+    }
+}
+.recursos{
+    position: relative;
+    border: 1px solid white;
+    border-radius: 30px;
+    width: 55%;
+    padding: 20px;
+    box-shadow: inset 0 0 10px white, 0 0 10px white;
+
+}
+.infop{
+    font-size: 40px;
+    position: relative;
+    width: 45%;
+    border: 1px solid white;
+    box-shadow: inset 0 0 10px white, 0 0 10px white;
+    border-radius: 60px;
+    color: white;
+    text-shadow: 0 0 5px blueviolet,0 0 15px blueviolet,0 0 30px blueviolet,0 0 50px blueviolet;
+    text-align: center;
+    padding: 10px;
+}
+.planetas{
+    position: relative;
+}
+.card{
+    
+    position: relative;
+    width: 600px;
+    height: 350px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    transition: 0.5s;
+}
+.card .circle{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+}
+.card .circle::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: gray;
+    clip-path: circle(120px at center);
+    transition: 0.5s;
+}
+.card:hover .circle:before{
+    background-color: black;
+    clip-path: circle(400px at center);
+}
+.card img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 200px;
+    pointer-events: none;
+    transition: 0.5s;
+}
+.card:hover img{
+    border: 1px solid white;
+    box-shadow: inset 0 0 10px white, 0 0 10px white;
+    border-radius: 50%;
+    left: 80%;
+    height: 300px;
+}
+.card .content{
+    border: 1px solid white;
+    box-shadow: inset 0 0 10px white, 0 0 10px white;
+    border-radius: 40px;
+    position: relative;
+    width: 50%;
+    left: 20%;
+    padding: 20px 20px 20px 20px;
+    transition: 0.5s;
+    opacity: 0;
+    visibility: hidden;
+}
+.card:hover .content{
+    left: 0;
+    opacity: 1;
+    visibility: visible;
+}
+.card .content h2{
+    color: white;
+    text-transform: uppercase;
+    font-size: 2em;
+    line-height: 1em;
+}
+.card .content p{
+    color: white;
+}
+
+footer{
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 3rem ;
+    color: white;
+}
+.footer{
+    box-shadow: inset 0 0 5px white, 0 0 15px white;
+    position: relative;
+    border: 1px solid white;
+    padding: 40px;
+    border-radius: 50px;
+}
+footer p{
+    width: 30%;
+    margin: 5px;
+    color: white;
+    text-shadow: 0 0 5px blueviolet,0 0 15px blueviolet,0 0 30px blueviolet,0 0 50px blueviolet ;
+}
+footer a{
+    margin: 5px;
+    transition: color 0.3 ease;
+    color: white;
+    text-decoration: none;
+    text-shadow: 0 0 5px blueviolet,0 0 15px blueviolet,0 0 30px blueviolet,0 0 50px blueviolet ;
+}
+footer a:hover{
+    color:red ;
+}
+table {
+    border: 2px solid white;
+    width: 50%;
+    text-align: center;
+    position: relative;
+    border-collapse: collapse;
+    background-color: rgb(15, 15, 15);
+    color: white;
+    box-shadow: inset 0 0 5px white, 0 0 15px white;
+}
+table thead th{
+    background-color: rgb(185, 185, 185);
+    color: black;
+}
